@@ -18,8 +18,8 @@ const { tag, posts } = Astro.props as Props;
 			<Title title={tag} subtitle="tag" class="pb-10 pt-20 uppercase" />
 		</div>
 		<ul class="mt-12 grid grid-cols-1 gap-x-3 gap-y-24 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3 lg:gap-x-6">
-			{
-				posts.map((post: CollectionEntry<"posts">) => (
+			{posts.map((post: CollectionEntry<"posts">) => (
+				<li>
 					<EntriesOne
 						url={`/blog/${post.slug}`}
 						title={post.data.title}
@@ -29,8 +29,8 @@ const { tag, posts } = Astro.props as Props;
 						author={post.data.author}
 						image={post.data.image.source}
 					/>
-				))
-			}
+				</li>
+			))}
 		</ul>
 	</div>
 </section>
