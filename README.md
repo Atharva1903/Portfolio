@@ -1,45 +1,46 @@
-# [Mintaka](https://mintaka.majestico.co)
+# 🌐 My Portfolio
 
-> [!IMPORTANT]
-> Currently this theme only works with the premium version of GSAP, the steps to use the standard version will be available in the future.
+Welcome to my personal portfolio website! Built with [Astro](https://astro.build/), styled using [Tailwind CSS](https://tailwindcss.com/), and enhanced with animations powered by [GSAP](https://gsap.com/).
 
-<a href="https://astro.build/">![Astro](.github/images/astro-icon.png)</a>
-<a href="https://tailwindcss.com/">![Tailwind](.github/images/tailwind-icon.png)</a>
-<a href="https://gsap.com/">![Gsap](.github/images/gsap.png)</a>
-
-Mintaka is a template made with [Astro](https://astro.build), [Tailwind](https://tailwindcss.com/) and [Gsap](https://gsap.com/)
-
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/majesticooss/mintaka)
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/majesticooss/mintaka)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/majesticooss/mintaka)
-
-
-### [🧪 Site preview →](https://mintaka.majestico.co)
-
-### [🧑‍🚀 Astro website →](https://astro.build/)
-
-### [🕮 Astro docs →](https://docs.astro.build/en/getting-started/)
+> **Note**: This portfolio is deployed and live on [Vercel](https://vercel.com).
 
 ---
 
-## Preview
+## 🚀 Live Preview
 
-![Mintaka Preview](.github/images/majestico_share.gif)
-
-## 🧪 Test
-
-On the folder run
-
-1. `bun install`  <small>(or `yarn` or `pnpm i`)</small>
-2. `bun run dev`  <small>(or `yarn dev` or `pnpm dev`)</small>
-
-## ✅ Features
-
-- [x] Localization
-- [x] Blog
+🔗 [View My Portfolio](https://your-vercel-link.vercel.app)
 
 ---
 
-<p align="right"><a href="https://majestico.co" target="_blank">majestico.co</p>
+## 🛠️ Tech Stack
+
+- ⚡ **Astro** — Static site generator
+- 🎨 **Tailwind CSS** — Utility-first CSS framework
+- ✨ **GSAP** — Animation library
+- 🔁 **Localization** — Multilingual support
+- ✍️ **Blog** — Built-in blogging support
+
+---
+
+## 📦 Getting Started (Local Development)
+
+To run the project locally:
+1. **Install dependencies**:
+   ```bash
+   bun install
+   # or
+   yarn
+   # or
+   pnpm install
+2.Start the development server:
+  ```bash
+  Copy
+  Edit
+  bun run dev
+  # or
+  yarn dev
+  # or
+  pnpm dev
+3.Open http://localhost:4321 in your browser.
+
+
