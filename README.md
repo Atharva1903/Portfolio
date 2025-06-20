@@ -17,8 +17,6 @@ Welcome to my personal portfolio website! Built with [Astro](https://astro.build
 - ⚡ **Astro** — Static site generator
 - 🎨 **Tailwind CSS** — Utility-first CSS framework
 - ✨ **GSAP** — Animation library
-- 🔁 **Localization** — Multilingual support
-- ✍️ **Blog** — Built-in blogging support
 
 ---
 
