@@ -1,0 +1,240 @@
+---
+
+const isDev = import.meta.env.DEV;
+
+const { pathname } = Astro.url;
+---
+
+<section id="hero" class="section home-dark-section hero min-h-screen relative overflow-hidden" style="background: transparent;">
+	<!-- Pulsing grid background -->
+	<div class="absolute inset-0 -z-10 pointer-events-none">
+		<div class="grid-background"></div>
+	</div>
+
+	<div class="mx-auto flex h-full flex-col py-4 lg:py-10 w-full items-center justify-center px-4">
+		<div class="flex flex-col items-center gap-6 w-full">
+			<!-- Name Section -->
+			<div class="name-section">
+				<h1 class="text-center font-display font-extrabold text-slate-900" style="font-size:clamp(2rem,7vw,4.5rem)">
+					Hi I'm
+				</h1>
+				<h1 class="text-center font-display font-extrabold text-slate-900 " style="font-size:clamp(2rem,7vw,4.5rem)">ATHARVA&nbsp;KAKADE</h1>
+			</div>
+
+			<!-- Title Section -->
+			<h2 class="text-center text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-700">
+				Software Engineer
+			</h2>
+
+			<!-- Rotating Text Section -->
+			<div class="rotator-wrapper max-w-xs sm:max-w-md md:max-w-xl w-full">
+				<div class="rotator">
+					<span class="rotator-item text-base sm:text-lg md:text-xl">Problem Solver</span>
+					<span class="rotator-item text-base sm:text-lg md:text-xl">Creative Thinker</span>
+					<span class="rotator-item text-base sm:text-lg md:text-xl">Full-Stack Developer</span>
+					<span class="rotator-item text-base sm:text-lg md:text-xl">Tech Enthusiast</span>
+					<span class="rotator-item text-base sm:text-lg md:text-xl">Lifelong Learner</span>
+				</div>
+			</div>
+
+			<!-- Action Buttons -->
+			<div class="flex flex-row w-full items-center justify-center gap-4 sm:gap-6 mt-8">
+				<a href="/src/assets/images/resume/Atharva's Resume (1).pdf" target="_blank" rel="noopener noreferrer" class="hero-btn-resume flex items-center gap-2 text-base md:text-lg font-semibold px-6 py-3 rounded-lg">
+					<svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> Resume
+				</a>
+				<a href="https://www.linkedin.com/in/atharva-kakade/" target="_blank" rel="noopener noreferrer" class="hero-btn-linkedin flex items-center gap-2 text-base md:text-lg font-semibold px-6 py-3 rounded-lg">
+					<svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+					  </svg> LinkedIn
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	/* Hero Section */
+	.hero {
+		padding-bottom: 0;
+		position: relative;
+		border-radius: inherit;
+		overflow: hidden;
+	}
+
+	.hero > div {
+		grid-column: 1 / span 12;
+	}
+
+	/* Grid Background with Pulse Effect */
+	.grid-background {
+		inset: 0;
+		background-image:
+			linear-gradient(to right, rgb(0, 0, 0) 1px, transparent 1px),
+			linear-gradient(to bottom, rgb(0, 0, 0) 1px, transparent 1px);
+		background-size: 32px 32px;
+		mask-image: radial-gradient(circle at 50% 50%, white 80%, transparent 100%);
+		-webkit-mask-image: radial-gradient(circle at 50% 50%, white 80%, transparent 100%);
+		animation: gridPulse 4s ease-in-out infinite;
+	}
+
+	@keyframes gridPulse {
+		0% {
+			opacity: 0.3;
+			transform: scale(0.98);
+		}
+		50% {
+			opacity: 0.5;
+			transform: scale(1);
+		}
+		100% {
+			opacity: 0.3;
+			transform: scale(0.98);
+		}
+	}
+
+	/* Name Section */
+	.name-section h1 {
+		margin: 0;
+		position: relative;
+		overflow: hidden;
+		visibility: hidden;
+	}
+
+	/* Rotating Text Styles */
+	.rotator-wrapper {
+		height: 3rem;
+		width: 100%;
+		max-width: 600px;
+		margin: 1rem auto;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.rotator {
+		position: relative;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.rotator-item {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		font-family: var(--font-display);
+		font-weight: bold;
+		font-size: 1.5rem;
+		color: #171717;
+		text-align: center;
+		white-space: nowrap;
+		opacity: 0;
+	}
+
+	.rotator-item:first-child {
+		opacity: 1;
+	}
+
+	/* Button Styles */
+	.hero-btn-resume {
+		background: #111;
+		color: #fff;
+		border: 2px solid #fff;
+		transition: all 0.2s ease-in-out;
+		border-radius: 9999px;
+	}
+
+	.hero-btn-resume:hover {
+		transform: scale(1.05);
+	}
+
+	.hero-btn-resume:active {
+		transform: scale(0.95);
+	}
+
+	.hero-btn-linkedin {
+		background: transparent;
+		color: #111;
+		border: 2px solid #111;
+		transition: all 0.2s ease-in-out;
+		border-radius: 9999px;
+	}
+
+	.hero-btn-linkedin:hover {
+		transform: scale(1.05);
+	}
+
+	.hero-btn-linkedin:active {
+		transform: scale(0.95);
+	}
+</style>
+
+<script>
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+	import { SplitText } from "gsap/SplitText";
+	import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+	gsap.registerPlugin(ScrollTrigger, SplitText, ScrollToPlugin);
+
+	function init() {
+		// Name animation
+		const childSplit = new SplitText(".name-section h1", {
+			type: "lines,words,chars",
+			linesClass: "split-child",
+		});
+		const parentSplit = new SplitText(".name-section h1", {
+			type: "lines,words,chars",
+			linesClass: "split-parent",
+		});
+
+		gsap.timeline()
+			.from(childSplit.lines, {
+				duration: 1.5,
+				yPercent: 100,
+				ease: "power4",
+				stagger: 0.1,
+			})
+			.set(".name-section h1", { visibility: "visible" }, "<")
+			.then(() => {
+				// Rotating text animation
+				const words = document.querySelectorAll(".rotator-item");
+				let rotatorTimeline = gsap.timeline({ repeat: -1 });
+				rotatorTimeline.timeScale(0.5);
+
+				for (let i = 0; i < words.length; i++) {
+					let delay = i - 1;
+					let wordTL = gsap.timeline();
+					
+					if (i !== 0) {
+						gsap.set(words[i], { opacity: 1 });
+						wordTL.from(words[i], { 
+							duration: 1, 
+							yPercent: 100, 
+							opacity: 0, 
+							ease: "power4.out" 
+						});
+					} else {
+						delay += 1;
+						gsap.set(words[0], { opacity: 1, yPercent: 0 });
+					}
+
+					if (i !== words.length - 1) {
+						wordTL.to(words[i], { 
+							duration: 1, 
+							yPercent: -100, 
+							opacity: 0, 
+							ease: "power4.out" 
+						});
+					}
+					
+					rotatorTimeline.add(wordTL, delay);
+				}
+			});
+	}
+
+	// Initialize on page load
+	document.addEventListener("DOMContentLoaded", init);
+</script>

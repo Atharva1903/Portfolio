@@ -1,0 +1,299 @@
+---
+import { Image } from "astro:assets";
+import advertisingSvg from "@assets/images/services/advertising.svg?raw";
+import designSvg from "@assets/images/services/creative-designer-doing-multitasking.svg?raw";
+import mobileSvg from "@assets/images/services/mobile-app-ui-ux-design.svg?raw";
+import seoSvg from "@assets/images/services/seo-link-building.svg?raw";
+import websiteSvg from "@assets/images/services/website-ui-ux-development.svg?raw";
+
+const { class: className } = Astro.props;
+
+const educationTimeline = [
+	{
+		year: "2024 - 2027",
+		title: "Bachelor of Engineering - Information Technology",
+		institution: "PDEA's College of Engineering",
+		description: "CGPA: 8.1/10",
+		details: "Built a strong foundation in programming, database management, and computer networks. Gained practical skills through mini-projects and hands-on labs in web development, C/C++, and Java."
+	},
+	{
+		year: "2021-2024",
+		title: "Diploma in Information Technology",
+		institution: "Pimpri Chinchwad Polytechnic",
+		description: "Score: 85.3%",
+		details: "Specialized in software development, data structures, and modern web technologies. Completed major projects in full-stack development and data-driven applications, with a focus on solving real-world problems. Participated in various science competitions and coding events."
+	},
+	{
+		year: "2011-2021",
+		title: "Secondary School",
+		institution: "Vidya Pratishthan's Someshwar",
+		description: "General Education",
+		details: "Developed strong foundation in mathematics and science. Active participant in extracurricular activities."
+	}
+];
+---
+
+<section id="education" class:list={["section home-dark-section education-section relative min-h-screen", className]}>
+	<div class="wrapper col-span-12 min-h-screen w-full flex flex-col justify-center px-4">
+		<h2 class="text-center font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-8 md:mb-16">Education</h2>
+		<div class="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
+			<!-- Timeline Points and Cards -->
+			<div class="timeline-container relative flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto px-0 md:px-4">
+				<!-- Timeline Line -->
+				<div class="timeline-line absolute md:h-2 h-full md:w-0 w-2 bg-white z-0"></div>
+				{
+					educationTimeline.map((item, index) => (
+						<div class="timeline-point relative flex flex-col items-center opacity-0 mb-8 md:mb-0" data-index={index}>
+							<!-- Timeline Point -->
+							<div class="timeline-dot w-6 h-6 rounded-full bg-white relative z-10 transition-all duration-300">
+								<div class="absolute inset-0 rounded-full bg-white blur-sm"></div>
+							</div>
+							<!-- Card -->
+							<div class="education-card mt-8 w-full max-w-xs md:w-[360px] min-h-[450px] bg-[#434343] rounded-lg p-4 md:p-8 transform transition-all duration-300 scale-95 relative shadow-lg flex flex-col mx-auto">
+								<!-- Card Content -->
+								<h3 class="text-lg md:text-xl font-bold mb-2 text-white relative inline-block">
+									{item.title}
+									<div class="absolute my-1 left-0 w-full h-1 bg-white/30 transition-all duration-300"></div>
+								</h3>
+								<p class="text-gray-400 text-xs md:text-sm mb-4 flex items-center mt-1">
+									<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+									{item.year}
+								</p>
+								<p class="text-gray-400 mb-2">{item.institution}</p>
+								<p class="text-gray-500 mb-4">{item.description}</p>
+								<div class="text-xs md:text-sm text-gray-400 flex-grow">{item.details}</div>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.timeline-dot {
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+	}
+	.timeline-point:hover .timeline-dot {
+		box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+					0 0 40px rgba(255, 255, 255, 0.4),
+					0 0 60px rgba(255, 255, 255, 0.2);
+	}
+	.education-card {
+		background: #222222;
+		position: relative;
+		overflow: hidden;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+	.timeline-point:hover .education-card {
+		transform: scale(1.05);
+		box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4),
+					0 12px 24px rgba(0, 0, 0, 0.3);
+		border-color: rgba(255, 255, 255, 0.2);
+	}
+	.timeline-point:hover .education-card h3 .absolute {
+		background: white;
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+	}
+	.timeline-line {
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+	}
+	@media (max-width: 1024px) {
+		.timeline-line,
+		.timeline-dot {
+			display: none !important;
+		}
+		.timeline-container {
+			flex-direction: column !important;
+			align-items: stretch !important;
+		}
+		.timeline-point {
+			flex-direction: column !important;
+			align-items: stretch !important;
+			margin-bottom: 0 !important;
+		}
+		.education-card {
+			margin-top: 0 !important;
+			margin-left: 0 !important;
+			min-width: 0 !important;
+			width: 100% !important;
+			max-width: 100vw !important;
+		}
+	}
+	@media (min-width: 1024px) {
+		.timeline-container {
+			justify-content: center !important;
+			align-items: center !important;
+		}
+		.timeline-point {
+			align-items: center !important;
+			justify-content: center !important;
+		}
+		.education-card {
+			font-size: clamp(1.1rem, 1.7vmin, 2.2rem);
+			padding: clamp(1.2rem, 2.5vmin, 3.5rem);
+			max-width: clamp(320px, 32vmin, 480px);
+			margin-left: clamp(1rem, 2vmin, 2.5rem);
+			margin-right: clamp(1rem, 2vmin, 2.5rem);
+		}
+		.timeline-dot {
+			width: clamp(18px, 2.5vmin, 36px);
+			height: clamp(18px, 2.5vmin, 36px);
+		}
+		.timeline-line {
+			height: clamp(4px, 0.7vmin, 14px);
+		}
+		.timeline-point h3 {
+			font-size: clamp(1.2rem, 2.5vmin, 2.7rem);
+		}
+		.timeline-point p, .timeline-point .details-content {
+			font-size: clamp(1rem, 1.5vmin, 1.5rem);
+		}
+	}
+	@media (max-width: 1024px) {
+		.timeline-line,
+		.timeline-dot {
+			display: none !important;
+		}
+		.timeline-container {
+			flex-direction: column !important;
+			align-items: stretch !important;
+		}
+		.timeline-point {
+			flex-direction: column !important;
+			align-items: stretch !important;
+			margin-bottom: 0 !important;
+		}
+		.education-card {
+			margin-top: 0 !important;
+			margin-left: 0 !important;
+			min-width: 0 !important;
+			width: 100% !important;
+			max-width: 100vw !important;
+			min-height: clamp(180px, 22vmin, 260px) !important;
+			padding: clamp(1rem, 2vmin, 2rem) !important;
+			font-size: clamp(1rem, 2.2vmin, 1.3rem) !important;
+		}
+	}
+	@media (min-width: 1250px) {
+		.timeline-container {
+			justify-content: center !important;
+			align-items: center !important;
+		}
+		.timeline-point {
+			align-items: center !important;
+			justify-content: center !important;
+		}
+		.education-card {
+			font-size: clamp(1.1rem, 1.7vmin, 2.2rem);
+			padding: clamp(1.2rem, 2.5vmin, 3.5rem);
+			max-width: clamp(320px, 32vmin, 480px);
+			margin-left: clamp(1rem, 2vmin, 2.5rem);
+			margin-right: clamp(1rem, 2vmin, 2.5rem);
+		}
+		.timeline-dot {
+			width: clamp(18px, 2.5vmin, 36px);
+			height: clamp(18px, 2.5vmin, 36px);
+		}
+		.timeline-line {
+			height: clamp(4px, 0.7vmin, 14px);
+		}
+		.timeline-point h3 {
+			font-size: clamp(1.2rem, 2.5vmin, 2.7rem);
+		}
+		.timeline-point p, .timeline-point .details-content {
+			font-size: clamp(1rem, 1.5vmin, 1.5rem);
+		}
+	}
+</style>
+
+<script>
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	function initEducationSection() {
+		const timelineLine = document.querySelector('.timeline-line');
+		const timelinePoints = document.querySelectorAll('.timeline-point');
+		const timelineContainer = document.querySelector('.timeline-container');
+
+		if (!timelineLine || !timelineContainer || timelinePoints.length < 3) return;
+
+		const firstPoint = timelinePoints[0] as HTMLElement;
+		const thirdPoint = timelinePoints[2] as HTMLElement;
+
+		// Get bounding client rects for accurate positions
+		const containerRect = timelineContainer.getBoundingClientRect();
+		const firstPointRect = firstPoint.getBoundingClientRect();
+		const thirdPointRect = thirdPoint.getBoundingClientRect();
+
+		// Get the actual dots for positioning
+		const firstDot = firstPoint.querySelector('.timeline-dot') as HTMLElement;
+		const thirdDot = thirdPoint.querySelector('.timeline-dot') as HTMLElement;
+
+		if (!firstDot || !thirdDot) return; // Safety check
+
+		const firstDotRect = firstDot.getBoundingClientRect();
+		const thirdDotRect = thirdDot.getBoundingClientRect();
+
+		// Calculate the vertical position: center of the dot, adjusted for the line's height
+		let lineTop = firstDotRect.top + firstDotRect.height / 2 - containerRect.top;
+		lineTop -= (timelineLine as HTMLElement).offsetHeight / 2; // Subtract half of the line's height to center it
+
+		// Calculate the start and end positions of the line based on the full width of the dots
+		const startLeft = firstDotRect.left - containerRect.left; // Start from the left edge of the first dot
+		const endLeft = thirdDotRect.right - containerRect.left; // End at the right edge of the third dot
+		const initialWidth = endLeft - startLeft;
+
+		gsap.set(timelineLine, { left: startLeft, top: lineTop, width: 0 });
+
+		// Create a timeline for synchronized animations
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: "#education",
+				start: "top 80%",
+				end: "center center",
+				scrub: 1,
+				markers: false
+			}
+		});
+
+		// Add animations to timeline
+		tl.to(timelineLine, {
+			width: initialWidth,
+			ease: "none",
+			onUpdate: function() {
+				// Calculate progress for each point
+				const progress = this.progress();
+				const pointCount = timelinePoints.length;
+				
+				timelinePoints.forEach((point, index) => {
+					const pointProgress = (progress * pointCount) - index;
+					if (pointProgress >= 0 && pointProgress <= 1) {
+						gsap.to(point, {
+							opacity: pointProgress,
+							duration: 0.1,
+							ease: "none"
+						});
+					}
+				});
+			}
+		});
+	}
+
+	document.addEventListener('DOMContentLoaded', initEducationSection);
+
+	// Recalculate positions on window resize to maintain responsiveness
+	window.addEventListener('resize', () => {
+		// Clear existing ScrollTrigger and re-initialize to apply new calculations
+		ScrollTrigger.getAll().forEach(st => {
+			if (st.trigger && (st.trigger as HTMLElement).id === "education") {
+				st.kill();
+			}
+		});
+		initEducationSection();
+	});
+</script>

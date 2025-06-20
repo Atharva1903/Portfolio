@@ -1,0 +1,139 @@
+<section id="about-me-section" class="py-16 md:py-24 home-dark-section relative overflow-hidden">
+  <div class="absolute left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#a2d4a0] to-[#aac887] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" aria-hidden="true"></div>
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8 lg:mb-12">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4">
+          About Me
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-stretch mt-4">
+        <div class="relative flex justify-center h-full">
+          <div class="relative w-full max-w-xs lg:max-w-sm h-full flex flex-col justify-between">
+            <div class="absolute -inset-[5px] bg-gray-300 rounded-lg about-me-card"></div>
+            <div class="aspect-square rounded-lg overflow-hidden shadow-lg w-full relative h-full">
+              <img 
+                src="/images/studiovision.jpg" 
+                alt="Profile Picture" 
+                width="400" 
+                height="400" 
+                class="object-cover w-full h-full about-me-image"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="space-y-4 lg:space-y-6 text-gray-700 text-base sm:text-lg h-full flex flex-col justify-between">
+          <div>
+            <p class="leading-tight">
+              I'm an Information Technology engineering student driven by a passion for creating impactful digital solutions. I love diving into new technologies, tackling real-world challenges through code, and constantly sharpening my development skills. Whether it's web development, software engineering, or mastering data structures and algorithms, I'm always eager to learn, build, and grow in the fast-paced world of tech.
+            </p>
+			<br>
+            <p class="leading-tight">
+              With expertise in multiple programming languages including Python, Java, C++, and JavaScript, I enjoy tackling complex 
+              problems and building scalable applications.
+            </p>
+			<br>
+            <p class="leading-tight">
+              Always learning, always building — striving to become a software engineer who makes an impact.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-2 lg:gap-4 pt-4">
+            <div class="py-3 lg:p-4 border border-gray-400 rounded-lg text-center">
+              <h3 class="text-xl lg:text-2xl font-bold text-gray-900">15+</h3>
+              <p class="text-xs lg:text-sm text-gray-600">Projects Completed</p>
+            </div>
+            <div class="p-2 lg:p-4 border border-gray-400 rounded-lg text-center">
+              <h3 class="text-xl lg:text-2xl font-bold text-gray-900">5+</h3>
+              <p class="text-xs lg:text-sm text-gray-600">Programming Languages</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+	.about-me-image {
+		--clip: 0%;
+		clip-path: inset(var(--clip) round 0.5rem);
+	}
+</style>
+
+<script>
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	function initAboutMeAnimations() {
+		const aboutMeImage = document.querySelector(".about-me-image");
+		const aboutMeCard = document.querySelector(".about-me-card");
+		if (aboutMeImage && aboutMeCard) {
+			gsap.from(aboutMeImage, {
+				scrollTrigger: {
+					trigger: aboutMeImage,
+					start: "top bottom",
+					end: "center center",
+					scrub: 1,
+					markers: false,
+				},
+				ease: "power3.out",
+				"--clip": "30%",
+			});
+
+			gsap.from(aboutMeCard, {
+				scrollTrigger: {
+					trigger: aboutMeCard,
+					start: "top bottom",
+					end: "center center",
+					scrub: 0.7,
+					markers: false,
+				},
+				ease: "power3.out",
+				scale: 0.8,
+				opacity: 0,
+			});
+		}
+
+		const isMobile = window.matchMedia('(max-width: 1024px)').matches;
+		let colorStart = "center center";
+		if (isMobile) {
+			const section = document.getElementById('about-me-section');
+			if (section) {
+				const rect = section.getBoundingClientRect();
+				const scrollY = window.scrollY || window.pageYOffset;
+				const offset = rect.top + scrollY + rect.height * 0.7;
+				colorStart = `+=${offset - window.innerHeight} top`;
+			}
+		}
+
+		gsap.to(".home-dark-section", {
+			scrollTrigger: {
+				trigger: "#about-me-section",
+				start: colorStart,
+				end: "bottom top",
+				scrub: 0.5,
+				markers: false,
+				immediateRender: false,
+			},
+			ease: "none",
+			backgroundColor: "#18181b",
+			color: "#fff",
+		});
+		gsap.to("#about-me-section h2, #about-me-section p, #about-me-section h3", {
+			scrollTrigger: {
+				trigger: "#about-me-section",
+				start: colorStart,
+				end: "bottom top",
+				scrub: 0.01,
+				markers: false,
+				immediateRender: false,
+			},
+			ease: "none",
+			color: "#fff",
+		});
+	}
+	document.removeEventListener("DOMContentLoaded", initAboutMeAnimations);
+	document.addEventListener("DOMContentLoaded", initAboutMeAnimations);
+</script> 
