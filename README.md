@@ -32,15 +32,14 @@ To run the project locally:
    yarn
    # or
    pnpm install
-2.Start the development server:
-  ```bash
-  Copy
-  Edit
-  bun run dev
-  # or
-  yarn dev
-  # or
-  pnpm dev
+2. Start the development server:
+   ```bash
+   bun run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
 3.Open http://localhost:4321 in your browser.
+
 
 
